@@ -1,0 +1,22 @@
+<Receipes>
+	<Receipe Type ="Curries">
+		<Receipe name ="Potato"/>
+		<Receipe name ="Tomato"/>
+		<Receipe name ="EggPlant"/>
+	</Receipe Type>
+	<Receipe Type ="Rice Dishes">
+		<Receipe name ="Biryani"/>
+		<Receipe name ="Pulao"/>
+		<Receipe name ="Tamarind Rice"/>
+	</Receipe Type>
+	<Receipe Type ="Deserts">
+		<Receipe name ="Halwa"/>
+		<Receipe name ="Gulab Jamoon"/>
+		<Receipe name ="Laddoo"/>
+	</Receipe Type>
+	<Receipe Type ="Drinks">
+		<Receipe name ="Lassi"/>
+		<Receipe name ="Sharbath"/>
+		<Receipe name ="Falooda"/>
+	</Receipe Type>
+</Receipes>
