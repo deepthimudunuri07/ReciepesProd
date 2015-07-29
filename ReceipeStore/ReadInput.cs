@@ -6,44 +6,61 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
-using ReceipeStoreServices.Models;
+using System.Web.UI.WebControls;
+using ReceipeStore.Models;
 
-namespace ReceipeStoreServices
+
+namespace ReceipeStore
 {
     public class ReadInput
     {
 
-        private void ReadfromInput(string fileName)
+        public List<Receipe> ReadfromInput(string fileName)
         {
-            if (System.IO.Directory.Exists(fileName))
+
+            List<Receipe> myReceipes = new List<Receipe>();
+            if (System.IO.File.Exists(fileName))
             {
                 var fullFileName = string.Format("{0}@\\" + fileName, Directory.GetCurrentDirectory());
-                var connectionString =
-                    string.Format("Provider=Microsoft.Jet.OLEDB.4.0;datasource={0};Extended Properties=Excel 8.0;",
-                        fullFileName);
+                OleDbConnection connectionString =
+                    new OleDbConnection(
+                        string.Format(
+                            "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 8.0; HDR = Yes';",
+                            fileName));
+
                 var ds = new DataSet();
-                var adapter = new OleDbDataAdapter("Select * from [TestFile]", connectionString);
-                adapter.Fill(ds, "MyTest");
-                var data = ds.Tables["TestTables"].AsEnumerable();
+                var adapter = new OleDbDataAdapter("SELECT * from [Name$]", connectionString);
+                connectionString.Open();
+                adapter.Fill(ds);
 
-                var query = data.Where(x => x.Field<string>("seasonal") == string.Empty).Select(x =>
-                    new Receipe(x.Field<string>("Name"), new List<string>(new String[] { "first", "second" }), new List<string>(new String[] { "first", "second" }), x.Field<int>("CookingTime"), x.Field<int>("PreparationTime"), x.Field<bool>("IsHealthy"), x.Field<bool>("IsDiabetic"), x.Field<int>("ReceipeTypeID"), x.Field<int>("CuisineTyepID"))
-                    {
-                        
-                        
-                        Name = x.Field<string>("Name"),
-                        Ingredients = new List<string>(new String[]{"first","second"}),
-                        Instructions = new List<string>(new String[] { "first" }),
-                        CookingTime = x.Field<int>("CookingTime"),
-                        PreparationTime = x.Field<int>("PreparationTime"),
-                        IsHealthy = x.Field<bool>("IsHealthy"),
-                        IsDiabetic = x.Field<bool>("IsDiabetic"),
-                        ReceipeTypeID = x.Field<int>("ReceipeTypeID"),
-                        CuisineTypeID =x.Field<int>("CuisineTyepID")
+                DataTable dt = new DataTable();
+                dt = ds.Tables[0];
+              //  var data = ds.Tables[0].AsEnumerable();
+              //(data.Where(x => x.Field<string>("seasonal") == string.Empty).Select(x =>
+              //      new Receipe(x.Field<string>("Name"), new List<string>(new String[] { "first", "second" }), new List<string>(new String[] { "first", "second" }), x.Field<int>("CookingTime"), x.Field<int>("PreparationTime"), x.Field<bool>("IsHealthy"), x.Field<bool>("IsDiabetic"), x.Field<int>("ReceipeTypeID"), x.Field<int>("CuisineTyepID"))
+              //      {
 
-                    });
 
+              //      }));
+
+
+
+                foreach (DataRow row in dt.Rows)
+                {
+
+                    myReceipes.Add(new Receipe(row["Name"].ToString(), new List<string>(new String[] { "first", "second" }),
+                              new List<string>(new String[] { "first", "second" }), Convert.ToInt16(row["CookingTime"]),
+                              Convert.ToInt16(row["PreparationTime"]), (bool)row["IsHealthy"], (bool)row["IsDiabetic"], Convert.ToInt16(row["ReciepeType"]),
+                              Convert.ToInt16(row["CusineTypeID"])));
+                    
+                    }
+
+              
+                
             }
+
+            return myReceipes;
         }
+
     }
 }
