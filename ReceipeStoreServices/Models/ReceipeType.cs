@@ -9,7 +9,7 @@ namespace ReceipeStoreServices.Models
     {
         private string _category;
         private string _cuisine;
-        
+
 
 
         public string Category
@@ -36,13 +36,13 @@ namespace ReceipeStoreServices.Models
             }
         }
 
-        
+
 
         public ReceipeType(string Category, string Cuisine, bool ishealthy)
         {
             this._category = Category;
             this._cuisine = Cuisine;
-            
+
         }
     }
 }

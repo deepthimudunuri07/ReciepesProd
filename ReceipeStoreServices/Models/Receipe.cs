@@ -5,17 +5,17 @@ using System.Web;
 
 namespace ReceipeStoreServices.Models
 {
-    public class Receipe
+    public class Receipe 
     {
         private string _name;
         private List<string> _ingredients;
         private List<string> _instructions;
         private int cookingTime;
         private int preparationTime;
-        private int ReciepeTypeID;
+        private int _reciepeTypeID;
         private string seasonal;
         private string festival;
-        private int cuisinetypeID;
+        private int _cuisinetypeID;
         private bool _isHealthy;
         private bool _isDiabetic;
 
@@ -66,7 +66,11 @@ namespace ReceipeStoreServices.Models
             set;
         }
 
-        public Receipe(string Name,List<string>Ingedients,List<string>Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic)
+        public int CuisineTypeID { get; set; }
+
+        public int ReceipeTypeID { get; set; }
+
+        public Receipe(string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, int receipeTypeID, int cuisineType)
         {
             this._name = Name;
             this._ingredients = Ingedients;
@@ -75,6 +79,8 @@ namespace ReceipeStoreServices.Models
             this.preparationTime = PreparationTime;
             this._isDiabetic = IsDiabetic;
             this._isHealthy = IsHealthy;
+            this._reciepeTypeID = ReceipeTypeID;
+            this._cuisinetypeID = cuisineType;
         }
         public Receipe(string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, string Seasonal)
         {
@@ -97,6 +103,11 @@ namespace ReceipeStoreServices.Models
             this._isDiabetic = IsDiabetic;
             this.festival = Festival;
             this._isHealthy = IsHealthy;
+        }
+
+        public Receipe()
+        {
+            // TODO: Complete member initialization
         }
     }
 }
