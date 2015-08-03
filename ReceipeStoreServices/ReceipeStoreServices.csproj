@@ -156,6 +156,7 @@
     <Compile Include="Models\Receipe.cs" />
     <Compile Include="Models\ReceipeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadInput.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
