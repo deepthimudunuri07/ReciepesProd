@@ -14,7 +14,6 @@ using ReceipeStore.Models;
 
 namespace ReceipeStore.Controllers
 {
-    [Authorize]
     public class MeController : ApiController
     {
         private ApplicationUserManager _userManager;

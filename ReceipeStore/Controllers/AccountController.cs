@@ -14,7 +14,7 @@ using ReceipeStore.Models;
 
 namespace ReceipeStore.Controllers
 {
-    [Authorize]
+   
     public class AccountController : Controller
     {
         private ApplicationUserManager _userManager;

@@ -15,11 +15,11 @@ namespace ReceipeStoreServices.Controllers
 
             return View();
         }
-        public JsonResult Get()
-        {
-            XDocument InputXml = XDocument.Load("InputFile.xml");
-            var Result = InputXml.Descendants("ReceipeType");
-            return Json(Result, JsonRequestBehavior.AllowGet);
-        }
+        //public JsonResult Get()
+        //{
+        //    XDocument InputXml = XDocument.Load("InputFile.xml");
+        //    var Result = InputXml.Descendants("ReceipeType");
+        //    return Json(Result, JsonRequestBehavior.AllowGet);
+        //}
     }
 }
