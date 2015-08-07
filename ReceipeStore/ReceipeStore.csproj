@@ -197,6 +197,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Scripts\Runapp.js" />
+    <Content Include="Scripts\Contollers\landingPage.js" />
     <Content Include="Views\Home\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
@@ -260,6 +262,7 @@
     <Content Include="Scripts\app\common.js" />
     <Content Include="Scripts\app\home.viewmodel.js" />
     <Content Include="Views\Home\angular.min.js" />
+    <Content Include="Views\Home\Home.html" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
