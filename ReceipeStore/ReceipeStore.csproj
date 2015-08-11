@@ -197,6 +197,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Scripts\Contollers\secondControl.js" />
     <Content Include="Scripts\Runapp.js" />
     <Content Include="Scripts\Contollers\landingPage.js" />
     <Content Include="Views\Home\bootstrap.min.css" />
@@ -227,7 +228,6 @@
     <Content Include="Scripts\angular-touch.js" />
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
-    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -261,8 +261,7 @@
     <Content Include="Scripts\app\app.viewmodel.js" />
     <Content Include="Scripts\app\common.js" />
     <Content Include="Scripts\app\home.viewmodel.js" />
-    <Content Include="Views\Home\angular.min.js" />
-    <Content Include="Views\Home\Home.html" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />

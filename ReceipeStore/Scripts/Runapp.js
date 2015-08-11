@@ -1,2 +1,3 @@
-﻿var Runapp = andular.module('Runapp', []);
-Runapp.Controller('landingPageController', landingPageController);
+﻿var Runapp = angular.module('Runapp', []);
+Runapp.controller('landingPageController', landingPageController);
+Runapp.controller('SecondControl', secondControl);
