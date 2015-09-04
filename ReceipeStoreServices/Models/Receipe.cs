@@ -7,17 +7,7 @@ namespace ReceipeStoreServices.Models
 {
     public class Receipe 
     {
-        private string _name;
-        private List<string> _ingredients;
-        private List<string> _instructions;
-        private int cookingTime;
-        private int preparationTime;
-        private int _reciepeTypeID;
-        private string seasonal;
-        private string festival;
-        private int _cuisinetypeID;
-        private bool _isHealthy;
-        private bool _isDiabetic;
+        
 
 
         public string Name
@@ -72,37 +62,39 @@ namespace ReceipeStoreServices.Models
 
         public Receipe(string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, int receipeTypeID, int cuisineType)
         {
-            this._name = Name;
-            this._ingredients = Ingedients;
-            this._instructions = Instructions;
-            this.cookingTime = CookingTime;
-            this.preparationTime = PreparationTime;
-            this._isDiabetic = IsDiabetic;
-            this._isHealthy = IsHealthy;
-            this._reciepeTypeID = ReceipeTypeID;
-            this._cuisinetypeID = cuisineType;
+            this.CookingTime = CookingTime;
+            CuisineTypeID = cuisineType;
+            this.Name = Name;
+            Ingredients = Ingedients;
+            this.PreparationTime = PreparationTime;
+            this.IsDiabetic = IsDiabetic;
+            ReceipeTypeID = receipeTypeID;
+            this.Instructions = Instructions;
+            this.IsHealthy = IsHealthy;
         }
         public Receipe(string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, string Seasonal)
         {
-            this._name = Name;
-            this._ingredients = Ingedients;
-            this._instructions = Instructions;
-            this.cookingTime = CookingTime;
-            this.preparationTime = PreparationTime;
-            this._isDiabetic = IsDiabetic;
-            this._isHealthy = IsHealthy;
-            this.seasonal = Seasonal;
+            this.CookingTime = CookingTime;
+           this.Seasonal = Seasonal;
+            this.Name = Name;
+            Ingredients = Ingedients;
+            this.PreparationTime = PreparationTime;
+            this.IsDiabetic = IsDiabetic;
+           
+            this.Instructions = Instructions;
+            this.IsHealthy = IsHealthy;
         }
         public Receipe(string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, string Festival, bool IsHealthy, bool IsDiabetic)
         {
-            this._name = Name;
-            this._ingredients = Ingedients;
-            this._instructions = Instructions;
-            this.cookingTime = CookingTime;
-            this.preparationTime = PreparationTime;
-            this._isDiabetic = IsDiabetic;
-            this.festival = Festival;
-            this._isHealthy = IsHealthy;
+            this.CookingTime = CookingTime;
+            this.Festival = Festival;
+            this.Name = Name;
+            Ingredients = Ingedients;
+            this.PreparationTime = PreparationTime;
+            this.IsDiabetic = IsDiabetic;
+           
+            this.Instructions = Instructions;
+            this.IsHealthy = IsHealthy;
         }
 
         public Receipe()

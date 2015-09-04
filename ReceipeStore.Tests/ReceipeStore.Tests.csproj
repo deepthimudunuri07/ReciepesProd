@@ -99,6 +99,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadInputTest.cs" />
+    <Compile Include="RReadInput.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

@@ -7,23 +7,42 @@
 <body>
     <div ng-controller="landingPageController">
         <input type="text" ng-model="models.helloAngular" />
-        <h1>{{models.helloAngular}}</h1>
+        {{models.helloAngular}}
         {{"I am " +"you"}}
         {{4 + 10}}
 
         <input type="text" ng-model="models.anothermodel" />
-        <h2>{{models.anothermodel}}</h2>
+        {{models.anothermodel}}
     </div>
     
+    <div ng-controller="HomeController">
+        <input type="text" ng-model="TestText.Test" />
+        {{TestText.Test}}
+
+        
+
+
+
+    </div>
+    
+    
+    
     <div ng-controller ="secondControl">
-        
-        
-        <input type="checkbox" ng-model ="models.checkModel" checked = "{{models.checkModel}}" />
-        
+        <select data-ng-options="p.Name for p in ReciepeList" data-ng-model="ReciepeList">
+
+            <option value=""> Select</option>
+
+        </select>
 
     </div>
     @*<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>*@
     <script src="@Url.Content("~/Scripts/angular.min.js")" type="text/javascript"></script>
+    <script>
+        
+
+      
+
+    </script>
    
     @Scripts.Render("~/bundles/Runapp");
 

@@ -63,8 +63,7 @@ namespace ReceipeStore.Tests
         public void ReadInputTestMethod()
         {
 
-            
-           ReadInput  myInput = new ReadInput();
+          ReadInput  myInput = new ReadInput();
            myInput.ReadfromInput(@"C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\InputFile.xlsx");
         }
     }

@@ -1,13 +1,11 @@
-﻿var secondControl = function($scope) {
-
-    $scope.models = {
-        modelradio : true
-
-};
-
-    $scope.models = {
-        checkModel: checked
-    };
-
-    secondControl.$inject = ['$scope'];
+﻿var secondTest = function ($scope, $http) {
+    
+    //$scope.ReciepeList = 'test';
+    $http.get("http://localhost/ReceipeStoreServices/api/values").success(function(result){
+        $scope.ReciepeList = result;
+    });
 }
+secondTest.$inject = ['$scope'];
+
+
+

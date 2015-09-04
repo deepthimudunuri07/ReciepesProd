@@ -1,10 +1,10 @@
-﻿var landingPageController = function ($scope) {
+﻿var landingPage = function ($scope) {
     $scope.models = {
         helloAngular: 'I work!'
     };
 
     $scope.models = {
-        anothermodel: 'Test to see if this works'
+        anothermodel: ''
     };
 }
-landingPageController.$inject = ['$scope'];
+landingPage.$inject = ['$scope'];
