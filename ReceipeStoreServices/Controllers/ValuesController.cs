@@ -28,11 +28,29 @@ namespace ReceipeStoreServices.Controllers
         //}
 
         // GET api/values/5
-        public HttpResponseMessage  Get()
+        //public HttpResponseMessage  Get()
+        //{
+
+        //    ReadInput input = new ReadInput(); 
+            
+        //    List<Receipe> reclist = new List<Receipe>();
+        //    reclist =
+        //        input.ReadfromInput(@"C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\InputFile.xlsx");
+        //    if (reclist == null)
+        //    {
+        //        throw new HttpResponseException(HttpStatusCode.NotFound);
+        //    }
+        //    return Request.CreateResponse(HttpStatusCode.OK, reclist);
+
+           
+        //            }
+
+
+        public HttpResponseMessage Get(int selected)
         {
 
-            ReadInput input = new ReadInput(); 
-            
+            ReadInput input = new ReadInput();
+
             List<Receipe> reclist = new List<Receipe>();
             reclist =
                 input.ReadfromInput(@"C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\InputFile.xlsx");
@@ -40,27 +58,18 @@ namespace ReceipeStoreServices.Controllers
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
-            return Request.CreateResponse(HttpStatusCode.OK, reclist);
 
-            //HttpResponseMessage finalResult =  new HttpResponseMessage (HttpStatusCode.OK)
-            //{
-            //    Content =  new ObjectContent(Type List<Receipe>,reclist,new JsonMediaTypeFormatter());
-            //}
+             var reclist1 = from receipe in reclist where receipe.ReceipeTypeID == selected select receipe;
+
+            return Request.CreateResponse(HttpStatusCode.OK, reclist1);
 
 
-            //HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK)
-            //{
-            //     Content =  new ObjectContent(List<Receipe>, input.ReadfromInput(@"C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\InputFile.xlsx"));
+        }
 
-            //                Content =
-            //                    new StringContent(
-            //                        ("{\"reciepes\":[ {\"Name\":\"Snacks\",\"City\":\"Berlin\",\"Country\":\"Germany\"}, {\"Name\":\"Curries\",\"City\":\"México D.F.\",\"Country\":\"Mexico\"}]}")
-            //            };
-            //            result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            //            return result;
-                    }
-
+        private int GetReciepeType()
+        {
+            return 1;
+        }
               
             }
         }

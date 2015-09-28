@@ -5,42 +5,42 @@
         <title ng-bind="models.helloAngular"></title>
     </head>
 <body>
-    <div ng-controller="landingPageController">
-        <input type="text" ng-model="models.helloAngular" />
-        {{models.helloAngular}}
-        {{"I am " +"you"}}
-        {{4 + 10}}
-
-        <input type="text" ng-model="models.anothermodel" />
-        {{models.anothermodel}}
-    </div>
-    
+   
     <div ng-controller="HomeController">
-        <input type="text" ng-model="TestText.Test" />
-        {{TestText.Test}}
 
-        
-
-
-
-    </div>
     
-    
-    
-    <div ng-controller ="secondControl">
-        <select data-ng-options="p.Name for p in ReciepeList" data-ng-model="ReciepeList">
+        <div class="dropdown">
+            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" >
+                Reciepes <span class="caret"></span>
+            </a>
 
-            <option value=""> Select</option>
+            <ul id="menu" class="dropdown-menu multi-level">
+                <li ng-repeat="p in ReciepeCategory">
+                    <a href="#" class="trigger right-caret" ng-mouseover="DisplaySubList(p)">{{p.Name}}</a>
+                    <ul class="dropdown-submenu">
+                        <li ng-repeat="list in ReciepeList">
+                            <a href="#" class="trigger right-caret">{{list.Name}}</a>
+                        </li>
 
-        </select>
+                    </ul>
+            </ul>
+            </div>
 
-    </div>
-    @*<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>*@
+
+           
+
+
+
+
+        </div>
+   
     <script src="@Url.Content("~/Scripts/angular.min.js")" type="text/javascript"></script>
+    <link href="~/Content/HomeCSS.css" rel="stylesheet" type="text/css">
     <script>
-        
 
-      
+  
+
+
 
     </script>
    
