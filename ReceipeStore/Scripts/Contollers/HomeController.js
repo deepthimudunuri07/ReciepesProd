@@ -7,16 +7,34 @@
     }).error(function(result1) { alert("There was an error while getting the data");});
 
 
-    $scope.DisplaySubList = function (ReciepeCategorySelected) {
-       console.log(ReciepeCategorySelected.ID);
-        $http.get("http://localhost/ReceipeStoreServices/api/values?selected="+ ReciepeCategorySelected.ID).success(function (result) {
+    $scope.DisplaySubList = function(ReciepeCategorySelected) {
+        console.log(ReciepeCategorySelected.ID);
+        $http.get("http://localhost/ReceipeStoreServices/api/values?selected=" + ReciepeCategorySelected.ID).success(function(result) {
             $scope.ReciepeList = result;
-           
-       }).error(function (result) {
-           alert("There was an error while getting the data");
-       });
 
-        $(".dropdown-menu > li > a.trigger").on("click", function (e) {
+        }).error(function(result) {
+            alert("There was an error while getting the data");
+        });
+    }
+
+
+
+    $scope.DisplayReciepe = function(selectedID) {
+        
+        $http.get("http://localhost/ReceipeStoreServices/api/Reciepe?ReciepeiD=" + selectedID.ReciepeID).success(function (result3) {
+            console.log(selectedID.ReciepeID);
+            $scope.Reciepe = result3;
+            //$scope.Reciepe ="DEEPTHI";
+
+        }).error(function (result3) {
+            alert("There was an error while getting the data");
+        });
+    }
+
+
+
+
+    $(".dropdown-menu > li > a.trigger").on("click", function (e) {
             var current = $(this).next();
             console.log("this is current:" + current);
             var grandparent = $(this).parent().parent();
@@ -35,5 +53,5 @@
         });
 
     }
-}
+
 HomeControl.$inject = ['$scope'];

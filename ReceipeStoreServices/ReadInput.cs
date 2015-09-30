@@ -49,7 +49,7 @@ namespace ReceipeStore
                 foreach (DataRow row in dt.Rows)
                 {
 
-                    myReceipes.Add(new Receipe(row["Name"].ToString(), new List<string>(new String[] { "first", "second" }),
+                    myReceipes.Add(new Receipe(Convert.ToInt16(row["ReciepeID"]),row["Name"].ToString(), new List<string>(new String[] { "first", "second" }),
                               new List<string>(new String[] { "first", "second" }), Convert.ToInt16(row["CookingTime"]),
                               Convert.ToInt16(row["PreparationTime"]), (bool)row["IsHealthy"], (bool)row["IsDiabetic"], Convert.ToInt16(row["ReciepeType"]),
                               Convert.ToInt16(row["CusineTypeID"])));

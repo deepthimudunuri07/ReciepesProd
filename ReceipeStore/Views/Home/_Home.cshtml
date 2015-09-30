@@ -16,14 +16,24 @@
 
             <ul id="menu" class="dropdown-menu multi-level">
                 <li ng-repeat="p in ReciepeCategory">
-                    <a href="#" class="trigger right-caret" ng-mouseover="DisplaySubList(p)">{{p.Name}}</a>
-                    <ul class="dropdown-submenu">
-                        <li ng-repeat="list in ReciepeList">
-                            <a href="#" class="trigger right-caret">{{list.Name}}</a>
-                        </li>
+                <a href="#" class="trigger right-caret" ng-mouseover="DisplaySubList(p)">{{p.Name}}</a>
+                <ul class="dropdown-submenu">
+                    <li ng-repeat="list in ReciepeList">
+                        <a href="#" class="trigger right-caret" ng-mouseover="DisplayReciepe(list)">{{list.Name}}</a>
+                    </li>
 
-                    </ul>
+                </ul>
             </ul>
+            <table>
+                <th><span>
+                        {{Reciepe}}
+                    </span></th>
+                @*<tr><td>{{Reciepe.ingredients}}</td></tr>
+                <tr><td>{{Reciepe.instructions}}</td></tr>*@
+            </table>
+           
+           
+            
             </div>
 
 

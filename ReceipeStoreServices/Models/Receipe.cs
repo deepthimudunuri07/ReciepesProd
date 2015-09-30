@@ -7,7 +7,8 @@ namespace ReceipeStoreServices.Models
 {
     public class Receipe 
     {
-        
+
+        public int ReciepeID { get; set; }
 
 
         public string Name
@@ -60,8 +61,9 @@ namespace ReceipeStoreServices.Models
 
         public int ReceipeTypeID { get; set; }
 
-        public Receipe(string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, int receipeTypeID, int cuisineType)
+        public Receipe(int id,string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, int receipeTypeID, int cuisineType)
         {
+            this.ReciepeID = id;
             this.CookingTime = CookingTime;
             CuisineTypeID = cuisineType;
             this.Name = Name;
@@ -72,8 +74,9 @@ namespace ReceipeStoreServices.Models
             this.Instructions = Instructions;
             this.IsHealthy = IsHealthy;
         }
-        public Receipe(string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, string Seasonal)
+        public Receipe(int Id,string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, string Seasonal)
         {
+            this.ReciepeID = Id;
             this.CookingTime = CookingTime;
            this.Seasonal = Seasonal;
             this.Name = Name;
