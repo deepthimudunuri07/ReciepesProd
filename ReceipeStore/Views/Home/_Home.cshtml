@@ -9,7 +9,7 @@
     <div ng-controller="HomeController">
 
     
-        <div class="dropdown">
+        <div class="dropdown" align="left">
             <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" >
                 Reciepes <span class="caret"></span>
             </a>
@@ -23,26 +23,38 @@
                     </li>
 
                 </ul>
-            </ul>
-            <table>
-                <th><span>
-                        {{Reciepe}}
-                    </span></th>
-                @*<tr><td>{{Reciepe.ingredients}}</td></tr>
-                <tr><td>{{Reciepe.instructions}}</td></tr>*@
+            </ul></div>
+        <div align="center">
+            <table ng-repeat="item in Reciepe">
+                <tbody>
+                    <tr>
+                        <td style="align-content: center">
+                            {{item.Name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="align-content: center">
+                            
+                            <img class="rec-image" src="http://localhost/ReceipeStoreServices/Content/Images/{{item.ImageUrl}}" />
+                            
+                           
+                        </td>
+                    </tr>
+                    <tr><td>Ingredients:{{item.Ingredients}}</td>
+                    <tr><td>Instructions:{{item.Instructions}}</td></tr>
+                    <tr><td>CookingTime:{{item.CookingTime}}</td></tr>
+                    <tr><td>PreparationTime:{{item.PreparationTime}}</td></tr>
+                    <tr><td></td></tr>
+                </tbody>
             </table>
-           
-           
             
-            </div>
-
-
            
-
-
-
-
         </div>
+    
+   
+</div>
+            
+            
    
     <script src="@Url.Content("~/Scripts/angular.min.js")" type="text/javascript"></script>
     <link href="~/Content/HomeCSS.css" rel="stylesheet" type="text/css">

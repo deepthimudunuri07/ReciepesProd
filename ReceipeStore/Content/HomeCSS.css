@@ -111,3 +111,19 @@
 .left-caret:after
 {	border-right: 5px solid #ffaf46;
 }
+.RecDisplay {
+    align-content: center;
+    position: absolute;
+   
+    
+}
+
+./*footer {
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;
+}*/
+
+

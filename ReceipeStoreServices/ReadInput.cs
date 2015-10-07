@@ -52,13 +52,14 @@ namespace ReceipeStore
                     myReceipes.Add(new Receipe(Convert.ToInt16(row["ReciepeID"]),row["Name"].ToString(), new List<string>(new String[] { "first", "second" }),
                               new List<string>(new String[] { "first", "second" }), Convert.ToInt16(row["CookingTime"]),
                               Convert.ToInt16(row["PreparationTime"]), (bool)row["IsHealthy"], (bool)row["IsDiabetic"], Convert.ToInt16(row["ReciepeType"]),
-                              Convert.ToInt16(row["CusineTypeID"])));
+                              Convert.ToInt16(row["CusineTypeID"]),row["ImageUrl"].ToString()));
                     
                     }
 
-              
+              connectionString.Close();
                 
             }
+            
 
             return myReceipes;
         }

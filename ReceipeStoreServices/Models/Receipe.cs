@@ -57,11 +57,13 @@ namespace ReceipeStoreServices.Models
             set;
         }
 
+        public string ImageUrl { get; set; }
+
         public int CuisineTypeID { get; set; }
 
         public int ReceipeTypeID { get; set; }
 
-        public Receipe(int id,string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, int receipeTypeID, int cuisineType)
+        public Receipe(int id,string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, int receipeTypeID, int cuisineType,string _imageurl)
         {
             this.ReciepeID = id;
             this.CookingTime = CookingTime;
@@ -73,8 +75,9 @@ namespace ReceipeStoreServices.Models
             ReceipeTypeID = receipeTypeID;
             this.Instructions = Instructions;
             this.IsHealthy = IsHealthy;
+            this.ImageUrl = _imageurl;
         }
-        public Receipe(int Id,string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, string Seasonal)
+        public Receipe(int Id,string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, string Seasonal,string _imageUrl)
         {
             this.ReciepeID = Id;
             this.CookingTime = CookingTime;
@@ -86,6 +89,7 @@ namespace ReceipeStoreServices.Models
            
             this.Instructions = Instructions;
             this.IsHealthy = IsHealthy;
+            this.ImageUrl = _imageUrl;
         }
         public Receipe(string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, string Festival, bool IsHealthy, bool IsDiabetic)
         {

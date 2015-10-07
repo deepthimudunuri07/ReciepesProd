@@ -7,7 +7,20 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    border-color: goldenrod;
+    background-color: gainsboro;
+    position: fixed;
+    top: 15%;
+    bottom: 15%;
+    right: 25%;
+    left: 25%;
+    align-content: center;
+    
+
 }
+.footer 
+    { position: fixed; bottom: 0; }
+
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
@@ -19,6 +32,14 @@ textarea {
 /* Set padding to display errors that occur during databinding */
 .padding-error {
     padding-top: 20px;
+}
+
+.rec-image {
+    /*width: 150px;
+    height: 150px;*/
+    border: black;
+    border-color: black;
+ 
 }
 
 @media only screen and (max-width: 767px) {
