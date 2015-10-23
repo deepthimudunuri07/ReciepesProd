@@ -10,14 +10,52 @@
     border-color: goldenrod;
     background-color: gainsboro;
     position: fixed;
-    top: 15%;
+    top: 25%;
     bottom: 15%;
     right: 25%;
     left: 25%;
+    
     align-content: center;
     
 
 }
+
+.ImageShow {
+    /*background-image: url('Images/background-with-vintage-282875489.jpg');*/
+    
+   
+    
+    /*background-image: url('Images/isolated-on-white-background-163562975.jpg');*/
+    /*background-image: url('Images/spice1-vintage-282875486.jpg');*/
+    background-image: url('Images/stock-vector-spices-seamless-background-252358957.jpg');
+   
+    /*background-repeat: no-repeat;*/
+    background-position: center;
+   /*-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+}
+ 
+
+.Testbackground {
+ background-color: cornsilk;
+ padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100%;
+  left: 10%;
+  right: 10%;
+  top: 10%;
+  bottom: 10%;
+   
+  position: fixed;
+      
+             
+ }
+  
+
 .footer 
     { position: fixed; bottom: 0; }
 

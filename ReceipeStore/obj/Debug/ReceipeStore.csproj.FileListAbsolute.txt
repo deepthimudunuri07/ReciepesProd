@@ -127,3 +127,8 @@ C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\ReceipeStore\bi
 C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\ReceipeStore\bin\System.Web.WebPages.xml
 C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\ReceipeStore\bin\System.Web.WebPages.Deployment.xml
 C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\ReceipeStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\ReceipeStore\bin\MongoDB.Bson.dll
+C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\ReceipeStore\bin\MongoDB.Driver.Core.dll
+C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\ReceipeStore\bin\MongoDB.Driver.dll
+C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\ReceipeStore\bin\MongoDB.Bson.xml
+C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\ReceipeStore\bin\MongoDB.Driver.xml

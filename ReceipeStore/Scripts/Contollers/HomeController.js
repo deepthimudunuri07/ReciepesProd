@@ -9,6 +9,9 @@
 
     $scope.DisplaySubList = function(ReciepeCategorySelected) {
         console.log(ReciepeCategorySelected.ID);
+        $(".dropdown-submenu").hide();
+        $("ul." + ReciepeCategorySelected.Name).show();
+        $scope.StyleAttr = "margin-left: 50*" + ReciepeCategorySelected.ID;
         $http.get("http://localhost/ReceipeStoreServices/api/values?selected=" + ReciepeCategorySelected.ID).success(function(result) {
             $scope.ReciepeList = result;
 

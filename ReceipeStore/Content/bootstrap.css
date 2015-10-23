@@ -4110,7 +4110,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
     float: left;
       width: 100%;
      max-height:50px;
-      background-color: gold;
+      /*background-color: gold;*/
+      background-color: darksalmon;
   }
 }
 
@@ -4981,6 +4982,7 @@ a.list-group-item.active > .badge,
 .container .jumbotron {
   border-radius: 6px;
 }
+
 
 @media screen and (min-width: 768px) {
   .jumbotron {

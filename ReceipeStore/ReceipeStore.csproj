@@ -96,6 +96,15 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\MongoDB.Bson.2.1.0\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\MongoDB.Driver.2.1.0\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.1.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -197,6 +206,11 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\HomeCSS.css" />
+    <Content Include="Content\Images\background-with-vintage-282875489.jpg" />
+    <Content Include="Content\Images\ceramic-mortar-285655790.jpg" />
+    <Content Include="Content\Images\isolated-on-white-background-163562975.jpg" />
+    <Content Include="Content\Images\spice1-vintage-282875486.jpg" />
+    <Content Include="Content\Images\stock-vector-spices-seamless-background-252358957.jpg" />
     <Content Include="Scripts\Contollers\HomeController.js" />
     <Content Include="Scripts\Contollers\secondControl.js" />
     <Content Include="Scripts\Runapp.js" />

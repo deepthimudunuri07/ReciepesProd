@@ -41,6 +41,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\MongoDB.Bson.2.1.0\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\MongoDB.Driver.2.1.0\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.1.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -163,11 +172,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="bin\ReceipeStoreServices.dll" />
+    <Content Include="bin\ReceipeStoreServices.pdb" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\HomeCSS.css" />
+    <Content Include="Content\Images\background-with-vintage-282875489.jpg" />
     <Content Include="Content\Images\Brinjal-rice.jpg" />
+    <Content Include="Content\Images\ceramic-mortar-285655790.jpg" />
     <Content Include="Content\Images\gajar.jpg" />
+    <Content Include="Content\Images\isolated-on-white-background-163562975.jpg" />
+    <Content Include="Content\Images\spice1-vintage-282875486.jpg" />
+    <Content Include="Content\Images\stock-vector-spices-seamless-background-252358957.jpg" />
     <Content Include="Content\Images\TomatoCurry.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -199,7 +215,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
