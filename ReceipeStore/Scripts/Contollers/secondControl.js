@@ -1,11 +1,16 @@
-﻿var secondTest = function ($scope, $http) {
-    
-    //$scope.ReciepeList = 'test';
-    $http.get("http://localhost/ReceipeStoreServices/api/values").success(function(result){
-        $scope.ReciepeList = result;
+﻿var DisplayList = function ($scope, $http, $rootScope, MenuService) {
+
+
+   
+    $scope.$on('Reciepe', function () {
+        console.log("$scope.$on in the DsiplayList");
+        $scope.Reciepe = MenuService.Reciepe;
     });
+    
+   
+   
 }
-secondTest.$inject = ['$scope'];
+DisplayList.$inject = ['$scope'];
 
 
 

@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -14,7 +15,6 @@
     bottom: 15%;
     right: 25%;
     left: 25%;
-    
     align-content: center;
     
 
@@ -28,7 +28,6 @@
     /*background-image: url('Images/isolated-on-white-background-163562975.jpg');*/
     /*background-image: url('Images/spice1-vintage-282875486.jpg');*/
     background-image: url('Images/stock-vector-spices-seamless-background-252358957.jpg');
-   
     /*background-repeat: no-repeat;*/
     background-position: center;
    /*-webkit-background-size: cover;

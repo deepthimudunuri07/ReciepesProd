@@ -213,8 +213,11 @@
     <Content Include="Content\Images\stock-vector-spices-seamless-background-252358957.jpg" />
     <Content Include="Scripts\Contollers\HomeController.js" />
     <Content Include="Scripts\Contollers\secondControl.js" />
+    <Content Include="Scripts\Directives\HeadderDirective.js" />
+    <Content Include="Scripts\Route.js" />
     <Content Include="Scripts\Runapp.js" />
     <Content Include="Scripts\Contollers\landingPage.js" />
+    <Content Include="Scripts\templates\Header.html" />
     <Content Include="Views\Home\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
@@ -315,6 +318,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\" />
+    <Folder Include="Scripts\Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

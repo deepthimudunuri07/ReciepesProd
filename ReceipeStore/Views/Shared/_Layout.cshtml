@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="Runapp">
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title - My ASP.NET Application</title>
@@ -11,7 +11,7 @@
 
 <body class="ImageShow">
     <div class="container Testbackground ">
-        @*<div class="container">*@
+        <div ng-controller="HomeController">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -20,12 +20,28 @@
                 </button>
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Reciepes", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>
-                </ul>
+            <div class="dropdown" align="left">
+                <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#">
+                    Reciepes <span class="caret"></span>
+                </a>
+                <a id="CusineLable" role="tab" data-toggle="tab" class="btn btn-primary" data-target="#">
+                    Cuisines 
+                </a>
+                <a id="CusineLable" role="tab" data-toggle="tab" class="btn btn-primary" data-target="#">
+                    Login
+                </a>
                 @Html.Partial("_LoginPartial")
+
+                <ul id="menu" class="dropdown-menu multi-level">
+                    <li ng-repeat="p in ReciepeCategory">
+                        <a href="#" class="trigger right-caret" ng-mouseover="DisplaySubList(p)">{{p.Name}}</a>
+                        <ul class="dropdown-submenu" ng-class="p.Name" ng-style="StyleAttr">
+                            <li ng-repeat="list in ReciepeList">
+                                <a href="#" class="trigger right-caret" ng-mouseover="DisplayReciepe(list)">{{list.Name}}</a>
+                            </li>
+                        </ul>
+                </ul>
+            </div>
             </div>
 
 
@@ -36,8 +52,8 @@
                 @RenderSection("SPAViews", required: false)
 
             </div>
-        @*</div>*@
-    </div>
+            @*</div>*@
+        </div>
 
 
     <div class="footer">
