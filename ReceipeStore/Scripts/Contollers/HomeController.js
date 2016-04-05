@@ -1,4 +1,4 @@
-﻿var HomeControl = function ($scope, $http,$rootScope,MenuService) {
+﻿var HomeController = function ($scope, $http,$rootScope,MenuService) {
 
     
     MenuService.ReciepeCategorySelection($http, $rootScope);
@@ -9,7 +9,7 @@
 
 
 
-
+    
         $scope.DisplaySubList = function (ReciepeCategorySelected) {
             console.log("called DisplaySubList function in the hoem contoller ");
             MenuService.DisplaySubList($http, ReciepeCategorySelected, $rootScope);
@@ -32,4 +32,4 @@
 
     }
 
-HomeControl.$inject = ['$scope'];
+HomeController.$inject = ['$scope'];

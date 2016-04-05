@@ -1,5 +1,6 @@
-﻿var Runapp = angular.module('Runapp',[]);
-Runapp.controller('HomeController', ["$scope", "$http", '$rootScope', 'MenuService', HomeControl]);
+﻿var Runapp = angular.module('Runapp', []);
+
+Runapp.controller('HomeController', ["$scope", "$http", '$rootScope', 'MenuService', HomeController]);
 
 Runapp.controller('DisplayController', ["$scope", "$http", '$rootScope','MenuService', DisplayList]);
 

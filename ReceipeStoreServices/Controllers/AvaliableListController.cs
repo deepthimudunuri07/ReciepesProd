@@ -4,8 +4,16 @@ using System.Data.Metadata.Edm;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Mime;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
+using MongoDB.Bson;
+using Newtonsoft.Json;
+using ReceipeStoreServices.DatabaseEntities;
 using ReceipeStoreServices.Models;
+using ReceipeStoreServices.HelperClasses;
+using DbReceipeType = ReceipeStoreServices.DatabaseEntities.DbReceipeType;
 
 namespace ReceipeStoreServices.Controllers
 {
@@ -14,15 +22,23 @@ namespace ReceipeStoreServices.Controllers
         // GET: api/AvaliableList
         public HttpResponseMessage Get()
         {
-            List<ReceipeType> AvaliableList = new List<ReceipeType>();
             
-            string[] myarray = new string[] {"Curries", "Rice", "Snacks", "Deserts"};
-            for (int i = 0; i < myarray.Length; i++)
+            List<DbReceipeType> AvaliableList = new List<DbReceipeType>();
+            
+            using (MongoRepository _repository = new MongoRepository())
             {
-                AvaliableList.Add(new ReceipeType(i+1,myarray[i]));
-            }
+                AvaliableList = _repository.RetrieveCollection();
 
-            return  Request.CreateResponse(HttpStatusCode.OK, AvaliableList);
+            }
+              
+            List<ReceipeType> responseList = new List<ReceipeType>();
+
+            AvaliableList.ForEach(x => responseList.Add(new ReceipeType(x.ReciepeID, x.Name )));
+                
+            HttpResponseMessage returnResponse = Request.CreateResponse(HttpStatusCode.OK, responseList);
+            
+           
+            return returnResponse;
         }
 
         //// GET: api/AvaliableList/5
