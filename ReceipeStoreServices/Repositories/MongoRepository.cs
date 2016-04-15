@@ -30,15 +30,22 @@ namespace ReceipeStoreServices
             _Database = _client.GetDatabase("ReciepeHub");
         }
        
-        public List<DbReceipeType> RetrieveCollection()
+        //public List<DbReceipeType> RetrieveCollection()
+        //{
+        //    OpenConnection();
+        //    var filter = new BsonDocument();
+        //    var collection = _Database.GetCollection<DbReceipeType>("ReciepeType");
+        //    var results =  collection.Find(filter).ToList();
+        //   return results;
+        
+        //}
+
+        public List<T> RetrieveCollection<T>(string collectionName, FilterDefinition<T> filters)
         {
             OpenConnection();
-            var filter = new BsonDocument();
-            var collection = _Database.GetCollection<DbReceipeType>("ReciepeType");
-            var results =  collection.Find(filter).ToList();
-           return results;
-        
-            
+            var collection = _Database.GetCollection<T>(collectionName);
+            var results = collection.Find(filters).ToList();
+            return results;
         }
 
         public void Dispose()

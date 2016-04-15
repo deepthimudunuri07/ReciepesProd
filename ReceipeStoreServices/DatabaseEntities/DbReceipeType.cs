@@ -16,9 +16,7 @@ namespace ReceipeStoreServices.DatabaseEntities
             Name = name;
            
         }
-
-       
-
+   
         
     }
 }

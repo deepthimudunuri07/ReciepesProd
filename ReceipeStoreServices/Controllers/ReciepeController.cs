@@ -4,7 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using ReceipeStore;
+using ReceipeStoreServices.DatabaseEntities;
 using ReceipeStoreServices.Models;
 
 namespace ReceipeStoreServices.Controllers
@@ -16,19 +19,34 @@ namespace ReceipeStoreServices.Controllers
         // GET: api/Reciepe/5
         public HttpResponseMessage Get(int ReciepeiD)
         {
-            ReadInput input = new ReadInput();
+            //ReadInput input = new ReadInput();
 
-            List<Receipe> reclist = new List<Receipe>();
-            reclist =
-                input.ReadfromInput(@"C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\InputFile.xlsx");
-            if (reclist == null)
+            List<DbReceipe> reclist = new List<DbReceipe>();
+
+            using (MongoRepository _repository = new MongoRepository())
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                var filter = Builders<DbReceipe>.Filter.Eq("ReciepeID", ReciepeiD);
+                reclist = _repository.RetrieveCollection<DbReceipe>("Reciepe",filter);
             }
 
-            var reclist1 = from receipe in reclist where receipe.ReciepeID == ReciepeiD select receipe;
+            List<Receipe> responseList = new List<Receipe>();
+            
+        
+            reclist.ForEach(x => responseList.Add(new Receipe(x.ReciepeID,x.Name, x.Ingredients, x.Instructions, x.CookingTime, x.PreparationTime, x.IsHealthy, x.IsDiabetic, x.ReceipeTypeID, x.CuisineTypeID,x.ImageUrl)));
+            HttpResponseMessage returnResponse = Request.CreateResponse(HttpStatusCode.OK, responseList);
 
-            return Request.CreateResponse(HttpStatusCode.OK, reclist1);
+
+            return returnResponse;
+            //reclist =
+            //    input.ReadfromInput(@"C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\InputFile.xlsx");
+            //if (reclist == null)
+            //{
+            //    throw new HttpResponseException(HttpStatusCode.NotFound);
+            //}
+
+            //var reclist1 = from receipe in reclist where receipe.ReciepeID == ReciepeiD select receipe;
+
+            //return Request.CreateResponse(HttpStatusCode.OK, reclist1);
         }
 
         // POST: api/Reciepe

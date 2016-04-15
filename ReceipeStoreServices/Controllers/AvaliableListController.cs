@@ -24,17 +24,14 @@ namespace ReceipeStoreServices.Controllers
         {
             
             List<DbReceipeType> AvaliableList = new List<DbReceipeType>();
-            
+
             using (MongoRepository _repository = new MongoRepository())
             {
-                AvaliableList = _repository.RetrieveCollection();
-
+                AvaliableList = _repository.RetrieveCollection<DbReceipeType>("ReciepeType", new BsonDocument());
             }
               
             List<ReceipeType> responseList = new List<ReceipeType>();
-
             AvaliableList.ForEach(x => responseList.Add(new ReceipeType(x.ReciepeID, x.Name )));
-                
             HttpResponseMessage returnResponse = Request.CreateResponse(HttpStatusCode.OK, responseList);
             
            

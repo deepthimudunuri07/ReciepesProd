@@ -30,11 +30,12 @@ Runapp.factory("MenuService", function () {
 
 
     service.DisplaySubList = function ($http, ReciepeCategorySelected, $rootScope) {
-        console.log(ReciepeCategorySelected.ID);
+
         $(".dropdown-submenu").hide();
         $("ul." + ReciepeCategorySelected.Name).show();
         service.StyleAttr = "margin-left: 50*" + ReciepeCategorySelected.ID;
-        $http.get("http://localhost/ReceipeStoreServices/api/values?selected=" + ReciepeCategorySelected.ID).success(function (result) {
+        console.log("This is the ReciepeType selected" + ReciepeCategorySelected.ReciepeID);
+        $http.get("http://localhost/ReceipeStoreServices/api/values?selected=" + ReciepeCategorySelected.ReciepeID).success(function (result) {
             service.ReciepeList = result;
             console.log(" : This is the service return for the service.ReciepeList ", service.ReciepeList);
             $rootScope.$broadcast('ReciepeList');

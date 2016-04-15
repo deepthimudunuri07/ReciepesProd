@@ -13,7 +13,10 @@ using System.Linq;
 using System.Web;
 using System.Xml.Linq;
 using System.Web.Mvc;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using ReceipeStore;
+using ReceipeStoreServices.DatabaseEntities;
 using ReceipeStoreServices.Models;
 
 
@@ -49,19 +52,34 @@ namespace ReceipeStoreServices.Controllers
         public HttpResponseMessage Get(int selected)
         {
 
-            ReadInput input = new ReadInput();
 
-            List<Receipe> reclist = new List<Receipe>();
-            reclist =
-                input.ReadfromInput(@"C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\InputFile.xlsx");
-            if (reclist == null)
+            List<DbReceipe> AvaliableList = new List<DbReceipe>();
+
+            using (MongoRepository _repository = new MongoRepository())
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                var filter = Builders<DbReceipe>.Filter.Eq("ReciepeType", selected);
+                AvaliableList = _repository.RetrieveCollection<DbReceipe>("ReciepeType", filter);
             }
 
-             var reclist1 = from receipe in reclist where receipe.ReceipeTypeID == selected select receipe;
+            List<ReceipeType> responseList = new List<ReceipeType>();
+            AvaliableList.ForEach(x => responseList.Add(new ReceipeType(x.ReciepeID, x.Name)));
+            HttpResponseMessage returnResponse = Request.CreateResponse(HttpStatusCode.OK, responseList);
 
-            return Request.CreateResponse(HttpStatusCode.OK, reclist1);
+
+            return returnResponse;
+            //ReadInput input = new ReadInput();
+
+            //List<Receipe> reclist = new List<Receipe>();
+            //reclist =
+            //    input.ReadfromInput(@"C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\InputFile.xlsx");
+            //if (reclist == null)
+            //{
+            //    throw new HttpResponseException(HttpStatusCode.NotFound);
+            //}
+
+            // var reclist1 = from receipe in reclist where receipe.ReceipeTypeID == selected select receipe;
+
+           //return Request.CreateResponse(HttpStatusCode.OK, reclist1);
 
 
         }

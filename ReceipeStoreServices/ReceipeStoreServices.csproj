@@ -165,6 +165,7 @@
     <Compile Include="Controllers\AvaliableListController.cs" />
     <Compile Include="Controllers\ReciepeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DatabaseEntities\DbReceipe.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
