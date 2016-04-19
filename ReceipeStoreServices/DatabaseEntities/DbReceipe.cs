@@ -40,12 +40,12 @@ namespace ReceipeStoreServices.DatabaseEntities
             get;
             set;
         }
-        public string Seasonal
+        public bool IsSeasonal
         {
             get;
             set;
         }
-        public string Festival
+        public bool IsFestive
         {
             get;
             set;
@@ -63,29 +63,29 @@ namespace ReceipeStoreServices.DatabaseEntities
 
         public string ImageUrl { get; set; }
 
-        public int CuisineTypeID { get; set; }
+        public int CuisineType { get; set; }
 
-        public int ReceipeTypeID { get; set; }
+        public int ReciepeType { get; set; }
 
         public DbReceipe(int id,string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, int receipeTypeID, int cuisineType,string _imageurl)
         {
             this.ReciepeID = id;
             this.CookingTime = CookingTime;
-            CuisineTypeID = cuisineType;
+            CuisineType = cuisineType;
             this.Name = Name;
             Ingredients = Ingedients;
             this.PreparationTime = PreparationTime;
             this.IsDiabetic = IsDiabetic;
-            ReceipeTypeID = receipeTypeID;
+            ReciepeType = receipeTypeID;
             this.Instructions = Instructions;
             this.IsHealthy = IsHealthy;
             this.ImageUrl = _imageurl;
         }
-        public DbReceipe(int Id,string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, string Seasonal,string _imageUrl)
+        public DbReceipe(int Id,string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, bool Seasonal,string _imageUrl)
         {
             this.ReciepeID = Id;
             this.CookingTime = CookingTime;
-           this.Seasonal = Seasonal;
+           this.IsSeasonal = Seasonal;
             this.Name = Name;
             Ingredients = Ingedients;
             this.PreparationTime = PreparationTime;
@@ -95,10 +95,10 @@ namespace ReceipeStoreServices.DatabaseEntities
             this.IsHealthy = IsHealthy;
             this.ImageUrl = _imageUrl;
         }
-        public DbReceipe(string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, string Festival, bool IsHealthy, bool IsDiabetic)
+        public DbReceipe(string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool Festival, bool IsHealthy, bool IsDiabetic)
         {
             this.CookingTime = CookingTime;
-            this.Festival = Festival;
+            this.IsFestive = Festival;
             this.Name = Name;
             Ingredients = Ingedients;
             this.PreparationTime = PreparationTime;

@@ -32,7 +32,7 @@ namespace ReceipeStoreServices.Controllers
             List<Receipe> responseList = new List<Receipe>();
             
         
-            reclist.ForEach(x => responseList.Add(new Receipe(x.ReciepeID,x.Name, x.Ingredients, x.Instructions, x.CookingTime, x.PreparationTime, x.IsHealthy, x.IsDiabetic, x.ReceipeTypeID, x.CuisineTypeID,x.ImageUrl)));
+            reclist.ForEach(x => responseList.Add(new Receipe(x.ReciepeID,x.Name, x.Ingredients, x.Instructions, x.CookingTime, x.PreparationTime, x.IsHealthy, x.IsDiabetic, x.ReciepeType, x.CuisineType,x.ImageUrl)));
             HttpResponseMessage returnResponse = Request.CreateResponse(HttpStatusCode.OK, responseList);
 
 

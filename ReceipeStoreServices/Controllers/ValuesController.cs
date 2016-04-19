@@ -58,11 +58,11 @@ namespace ReceipeStoreServices.Controllers
             using (MongoRepository _repository = new MongoRepository())
             {
                 var filter = Builders<DbReceipe>.Filter.Eq("ReciepeType", selected);
-                AvaliableList = _repository.RetrieveCollection<DbReceipe>("ReciepeType", filter);
+                AvaliableList = _repository.RetrieveCollection<DbReceipe>("Reciepe", filter);
             }
 
-            List<ReceipeType> responseList = new List<ReceipeType>();
-            AvaliableList.ForEach(x => responseList.Add(new ReceipeType(x.ReciepeID, x.Name)));
+            List<Receipe> responseList = new List<Receipe>();
+            AvaliableList.ForEach(x => responseList.Add(new Receipe(x.ReciepeID,x.Name, x.Ingredients, x.Instructions, x.CookingTime, x.PreparationTime, x.IsHealthy, x.IsDiabetic, x.ReciepeType, x.CuisineType,x.ImageUrl)));
             HttpResponseMessage returnResponse = Request.CreateResponse(HttpStatusCode.OK, responseList);
 
 
