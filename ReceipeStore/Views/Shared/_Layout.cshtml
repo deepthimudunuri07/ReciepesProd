@@ -19,30 +19,16 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("ReciepeBook", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="dropdown" align="left">
-               
-                <a id="dLabel" data-toggle="dropdown" class="" data-target="#">
-                    Reciepes <span class="caret"></span>
-                </a>
                 @Html.Partial("_LoginPartial")
-                
-
-                <ul id="menu" class="dropdown-menu multi-level">
-                    <li ng-repeat="p in ReciepeCategory">
-                        <a href="#" class="trigger right-caret" ng-mouseover="DisplaySubList(p)">{{p.Name}}</a>
-                    <ul class="dropdown-submenu" ng-class="p.Name" ng-style="StyleAttr">
-                        <li ng-repeat="list in ReciepeList">
-                            <a href="#" class="trigger right-caret" ng-mouseover="DisplayReciepe(list)">{{list.Name}}</a>
-                        </li>
-                    </ul>
-                        </li>
-                </ul>
             </div>
-            </div>
+           
+            @Html.Partial("MenuBar")
+            
+            
+          </div>
 
 
-            <div class="container body-content">
+            <div class="container body-content" style="background-color: #fff8dc;">
 
 
                 @RenderBody()

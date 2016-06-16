@@ -1,8 +1,8 @@
 ﻿
 
 
-    <div ng-controller="DisplayController">
-    <div align="center">
+    <div ng-controller="DisplayController" style="background-color: #fff8de">
+    <div align="center" position="relative" >
             <table ng-repeat="item in Reciepe">
                 <tbody>
                     <tr>
@@ -10,14 +10,16 @@
                             {{item.Name}}
                         </td>
                     </tr>
+                    <div>
                     <tr>
                         <td style="align-content: center">
                             
-                            <img class="rec-image" ng-hide="item.Name==''" src="http://localhost/ReceipeStoreServices/Content/Images/{{item.ImageUrl}}"/>
+                            <img class="rec-image" style="align-content:center" ng-hide="item.Name==''" src="http://localhost/ReceipeStoreServices/Content/Images/{{item.ImageUrl}}"/>
                            
                            
                         </td>
                     </tr>
+                        </div>
                     <tr><td>Ingredients:{{item.Ingredients}}</td>
                     <tr><td>Instructions:{{item.Instructions}}</td></tr>
                     <tr><td>CookingTime:{{item.CookingTime}}</td></tr>

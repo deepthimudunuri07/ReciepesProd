@@ -76,6 +76,9 @@ textarea {
     height: 150px;*/
     border: black;
     border-color: black;
+    border-width: 10px;
+    align-content: center;
+    /*position: absolute;*/ 
  
 }
 

@@ -33,8 +33,8 @@ Runapp.factory("MenuService", function () {
 
         $(".dropdown-submenu").hide();
         $("ul." + ReciepeCategorySelected.Name).show();
-        service.StyleAttr = "margin-left: 50*" + ReciepeCategorySelected.ReciepeID;
-        console.log("This is the ReciepeType selected" + ReciepeCategorySelected.ReciepeID);
+        service.StyleAttr = "margin-left: 50*" + ReciepeCategorySelected.ID;
+        console.log( ReciepeCategorySelected);
         $http.get("http://localhost/ReceipeStoreServices/api/values?selected=" + ReciepeCategorySelected.ReciepeID).success(function (result) {
             service.ReciepeList = result;
             console.log(" : This is the service return for the service.ReciepeList ", service.ReciepeList);
