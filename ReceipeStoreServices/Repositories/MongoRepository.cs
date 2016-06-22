@@ -48,6 +48,13 @@ namespace ReceipeStoreServices
             return results;
         }
 
+        public void InsertCollection<T>(string collectionName, T document)
+        {
+            var collection = _Database.GetCollection<T>(collectionName);
+           
+            collection.InsertOne(document);
+        }
+
         public void Dispose()
         {
             

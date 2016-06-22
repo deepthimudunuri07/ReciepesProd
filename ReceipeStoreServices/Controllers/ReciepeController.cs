@@ -37,21 +37,17 @@ namespace ReceipeStoreServices.Controllers
 
 
             return returnResponse;
-            //reclist =
-            //    input.ReadfromInput(@"C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\InputFile.xlsx");
-            //if (reclist == null)
-            //{
-            //    throw new HttpResponseException(HttpStatusCode.NotFound);
-            //}
-
-            //var reclist1 = from receipe in reclist where receipe.ReciepeID == ReciepeiD select receipe;
-
-            //return Request.CreateResponse(HttpStatusCode.OK, reclist1);
+           
         }
 
         // POST: api/Reciepe
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Receipe value)
         {
+            using (MongoRepository _repository = new MongoRepository())
+            {
+                DbReceipe document = new DbReceipe(value.ReceipeTypeID,value.Name,value.Ingredients,value.Instructions,value.CookingTime,value.PreparationTime,value.IsHealthy,value.IsDiabetic,false,value.ImageUrl);
+                _repository.InsertCollection<DbReceipe>("Reciepe", document);
+            }
         }
 
         // PUT: api/Reciepe/5

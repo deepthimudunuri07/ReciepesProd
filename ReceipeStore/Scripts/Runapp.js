@@ -62,5 +62,25 @@ Runapp.factory("MenuService", function () {
     return service;
 });
 
+Runapp.factory("ShareService", function() {
+    var service = {};
+    service.Status = "";
+
+
+    service.ShareReciepe = function($http, $Reciepe, $rootScope) {
+        $http.post("http://localhost/ReceipeStoreServices/api/Reciepe/"+$Reciepe).success(function(result4) 
+        {
+            service.Status = result4;
+            $rootScope.$broadcast('ShareStatus');
+        }).
+    error(function(result4) {
+        alert("There was an error while getting the data" + result4);
+    });
+
+        return service;  
+    }
+
+});
+
 
 
