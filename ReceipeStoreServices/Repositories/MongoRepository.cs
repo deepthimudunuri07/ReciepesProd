@@ -11,6 +11,7 @@ using Microsoft.Ajax.Utilities;
 using Microsoft.SqlServer.Server;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using MongoDB.Driver.Core.Clusters.ServerSelectors;
 using ReceipeStoreServices.DatabaseEntities;
 using ReceipeStoreServices.Models;
 
@@ -46,6 +47,16 @@ namespace ReceipeStoreServices
             var collection = _Database.GetCollection<T>(collectionName);
             var results = collection.Find(filters).ToList();
             return results;
+        }
+
+        public DbReceipe RetrieveLastInserted()
+        {
+            var collection = _Database.GetCollection<DbReceipe>("Reciepe");
+            var builder = Builders<DbReceipe>.Sort;
+            var sort = builder.Descending("ReciepeID");
+            var result = collection.Find(new BsonDocumentFilterDefinition<DbReceipe>(new BsonDocument()));
+          List<DbReceipe> rec =  result.Sort(sort).Limit(1).ToList();
+            return rec.Find(x=> x.ReciepeID!= null);
         }
 
         public void InsertCollection<T>(string collectionName, T document)

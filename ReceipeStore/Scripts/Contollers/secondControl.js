@@ -4,9 +4,9 @@
         console.log("$scope.$on in the DsiplayList");
         $scope.Reciepe = MenuService.Reciepe;
     });
+
     
-   
-   
+
 }
 DisplayList.$inject = ['$scope'];
 

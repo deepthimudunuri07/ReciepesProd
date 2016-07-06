@@ -46,8 +46,9 @@ namespace ReceipeStore
 
 
             bundles.Add(new ScriptBundle("~/bundles/Runapp")
-    .IncludeDirectory("~/Scripts/Contollers", "*.js")
-    .Include("~/Scripts/Runapp.js"));
+                .IncludeDirectory("~/Scripts/Contollers", "*.js")
+                .Include("~/Scripts/Runapp.js")
+                .Include("~/Scripts/ShareFactory.js"));
             
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862

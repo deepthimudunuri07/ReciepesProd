@@ -221,6 +221,7 @@
     <Content Include="Scripts\Route.js" />
     <Content Include="Scripts\Runapp.js" />
     <Content Include="Scripts\Contollers\ShareReciepeController.js" />
+    <Content Include="Scripts\ShareFactory.js" />
     <Content Include="Scripts\templates\Header.html" />
     <Content Include="Views\Home\bootstrap.min.css" />
     <Content Include="Content\Site.css" />

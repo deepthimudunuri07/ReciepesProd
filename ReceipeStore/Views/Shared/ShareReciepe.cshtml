@@ -1,32 +1,65 @@
 ﻿
 <div ng-app="myApp" ng-controller="HomeController">
-    <form novalidate>
-        Reciepe Name:<br>
-        <input type="text" ng-model="ReciepeName"><br>
-        <a id="dLabel" data-toggle="dropdown" class="" data-target="#">
-            Reciepe Type: <span class="caret"></span>
-</a>
-       <br>
-        <ul id="menu" class="dropdown-menu">
-        <li ng-repeat="p in ReciepeCategory" ng-model="myvar">
-            <a href="#" class="">{{p.Name}}</a>
-        </li>
-            <li>Add a New Type</li></ul>
-        <br>
-        Instructions:
-        <br>
-        <textarea name="instructions" rows="5" ></textarea><br/>
-        <button ng-click="reset()">Submit</button>
-        
-        
-        <div ng-switch="myvar">
-            <div ng-switch-when="Curries">
+    <form novalidate ng-model="Reciepe" ng-controller="ShareReciepeController" ng-submit="Share()">
+        <div ng-hide="isHidden">
+            Reciepe Name:<br>
+            <input type="text" ng-model="Reciepe.Name"><br>
+            <a id="dLabel" data-toggle="dropdown" class="" data-target="#">
+                Reciepe Type: <span class="caret"></span>
+            </a>
+            <br>
+            <select ng-model="Reciepe.ReceipeTypeID" ng-options="item.Name for item in ReciepeCategory">{{item.Name}}</select>
+            @*<ul id="menu" class="dropdown-menu" ng-model="myvar">
+                <li ng-repeat="p in ReciepeCategory" ng-model="Reciepe.ReciepeTypeID">
+                    <a href="#" class="">{{p.Name}}</a>
+                </li>
+                <li><a href="#" class="">Add a New Type</a></li>
+            </ul>*@
+            <br>
+            Instructions:
+            <br>
+            <textarea name="instructions" rows="5" ng-model="Reciepe.Instructions"></textarea><br />
+            <br>
+            Cooking Time:
+            <br>
+            <input type="text" ng-model="Reciepe.CookingTime"><br>
+            <br>
+            Preparation Time:
+            <br>
+            <input type="text" ng-model="Reciepe.PreparationTime"><br>
+            <br>
+            Is It Healthy?:
+            <br>
+            <input type="checkbox" ng-model="Reciepe.IsHealthy"><br>
+            <br>
+            Is It Diabetic?:
+            <br>
+            <input type="checkbox" ng-model="Reciepe.IsDiabetic"><br>
+            <br>
+            Is It Seasonal?:
+            <br>
+            <input type="checkbox" ng-model="Reciepe.Seasonal"><br>
+            
+            <br>
+            Image:
+            @*<br><input id="imageid" type="file" ng-model="Reciepe.ImageUrl"/>
+            <br>*@
+            <button type="submit">Submit</button>
+        </div>
+
+        <div ng-model ="displaymessage">
+            <label ng-model="returnStatus">{{returnStatus}}</label>
+        </div>
+
+
+        <div ng-if="myvar =='1'">
+            <div>
                 <h1>Add a new Type</h1>
                 <input type="text" ng-model="Newtype"><br>
             </div>
-            
+
         </div>
-        
+
     </form>
     <script src="@Url.Content("~/Scripts/angular.min.js")" type="text/javascript"></script>
 </div>

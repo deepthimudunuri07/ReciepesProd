@@ -41,11 +41,14 @@ namespace ReceipeStoreServices.Controllers
         }
 
         // POST: api/Reciepe
-        public void Post([FromBody]Receipe value)
+        public void Post([FromBody] Receipe value)
         {
             using (MongoRepository _repository = new MongoRepository())
             {
-                DbReceipe document = new DbReceipe(value.ReceipeTypeID,value.Name,value.Ingredients,value.Instructions,value.CookingTime,value.PreparationTime,value.IsHealthy,value.IsDiabetic,false,value.ImageUrl);
+
+             DbReceipe result =_repository.RetrieveLastInserted();
+                DbReceipe document = new DbReceipe((result.ReciepeID + 1),value.ReceipeTypeID,value.Name,value.Ingredients,value.Instructions,value.CookingTime,value.PreparationTime,value.IsHealthy,value.IsDiabetic,false,value.ImageUrl);
+                
                 _repository.InsertCollection<DbReceipe>("Reciepe", document);
             }
         }

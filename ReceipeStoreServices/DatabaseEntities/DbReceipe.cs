@@ -81,7 +81,7 @@ namespace ReceipeStoreServices.DatabaseEntities
             this.IsHealthy = IsHealthy;
             this.ImageUrl = _imageurl;
         }
-        public DbReceipe(int Id,string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, bool Seasonal,string _imageUrl)
+        public DbReceipe(int Id, int ReciepetypeId ,string Name, List<string> Ingedients, List<string> Instructions, int CookingTime, int PreparationTime, bool IsHealthy, bool IsDiabetic, bool Seasonal,string _imageUrl)
         {
             this.ReciepeID = Id;
             this.CookingTime = CookingTime;
@@ -90,7 +90,7 @@ namespace ReceipeStoreServices.DatabaseEntities
             Ingredients = Ingedients;
             this.PreparationTime = PreparationTime;
             this.IsDiabetic = IsDiabetic;
-           
+            this.ReciepeType = ReciepetypeId;
             this.Instructions = Instructions;
             this.IsHealthy = IsHealthy;
             this.ImageUrl = _imageUrl;

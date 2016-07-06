@@ -4,6 +4,7 @@ Runapp.controller('HomeController', ["$scope", "$http", '$rootScope', 'MenuServi
 
 Runapp.controller('DisplayController', ["$scope", "$http", '$rootScope','MenuService', DisplayList]);
 
+Runapp.controller('ShareReciepeController', ["$scope", "$http", '$rootScope', 'ShareService', ShareController]);
 
 Runapp.factory("MenuService", function () {
     var service = {};
@@ -20,9 +21,7 @@ Runapp.factory("MenuService", function () {
         $http.get("http://localhost/ReceipeStoreServices/api/AvaliableList").success(function (result1) {
             
             service.ReciepeCategory = result1;
-            console.log(" : This is the result from the service: ", service.ReciepeCategory);
-
-            $rootScope.$broadcast('ReciepeCategory');
+           $rootScope.$broadcast('ReciepeCategory');
         }).error(function (result1) { alert("There was an error while getting the data" + result1); });
 
         return service.ReciepeCategory;
@@ -37,8 +36,7 @@ Runapp.factory("MenuService", function () {
         console.log( ReciepeCategorySelected);
         $http.get("http://localhost/ReceipeStoreServices/api/values?selected=" + ReciepeCategorySelected.ReciepeID).success(function (result) {
             service.ReciepeList = result;
-            console.log(" : This is the service return for the service.ReciepeList ", service.ReciepeList);
-            $rootScope.$broadcast('ReciepeList');
+        $rootScope.$broadcast('ReciepeList');
 
         }).error(function (result) {
             alert("There was an error while getting the data" + result);
@@ -62,25 +60,7 @@ Runapp.factory("MenuService", function () {
     return service;
 });
 
-Runapp.factory("ShareService", function() {
-    var service = {};
-    service.Status = "";
 
-
-    service.ShareReciepe = function($http, $Reciepe, $rootScope) {
-        $http.post("http://localhost/ReceipeStoreServices/api/Reciepe/"+$Reciepe).success(function(result4) 
-        {
-            service.Status = result4;
-            $rootScope.$broadcast('ShareStatus');
-        }).
-    error(function(result4) {
-        alert("There was an error while getting the data" + result4);
-    });
-
-        return service;  
-    }
-
-});
 
 
 
