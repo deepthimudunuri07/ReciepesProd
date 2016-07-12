@@ -7,23 +7,30 @@
                 <tbody>
                     <tr>
                         <td style="align-content: center">
-                            {{item.Name}}
+                            <b>{{item.Name}}</b>
                         </td>
                     </tr>
                     <div>
+                        <tr>
+                            <td style="align-content: center">
+
+                                <img class="rec-image" style="align-content:center" ng-hide="item.Name==''" src="http://localhost/ReceipeStoreServices/Content/Images/{{item.ImageUrl}}" />
+
+
+                            </td>
+                        </tr>
+                    </div>
                     <tr>
-                        <td style="align-content: center">
-                            
-                            <img class="rec-image" style="align-content:center" ng-hide="item.Name==''" src="http://localhost/ReceipeStoreServices/Content/Images/{{item.ImageUrl}}"/>
-                           
-                           
-                        </td>
-                    </tr>
-                        </div>
-                    <tr><td>Ingredients:{{item.Ingredients}}</td>
-                    <tr><td>Instructions:{{item.Instructions}}</td></tr>
-                    <tr><td>CookingTime:{{item.CookingTime}}</td></tr>
-                    <tr><td>PreparationTime:{{item.PreparationTime}}</td></tr>
+                        <td><b>
+                            Ingredients:</b> <table ng-repeat="ins in item.Ingredients " style= "border-color: orange" border="1">
+                                                <tr><td>{{ins}}</td></tr>
+                                            </table></td></tr>
+                  <tr><td><b> Instructions:</b>
+                                    <table ng-repeat="ins in item.Instructions " style="border-color: orange" border="1">
+                                    <tr><td>{{ins}}</td></tr>
+                                    </table></td></tr>  
+                    <tr><td><b>CookingTime:</b>{{item.CookingTime}}</td></tr>
+                    <tr><td><b>Preparation Time:</b>{{item.PreparationTime}}</td></tr>
                     <tr><td></td></tr>
                 </tbody>
             </table>

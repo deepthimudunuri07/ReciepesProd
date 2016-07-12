@@ -9,9 +9,8 @@ namespace ReceipeStoreServices.DatabaseEntities
         public string Name { get; set; }
 
 
-        public DbReceipeType( ObjectId _id, int Id, string name)
+        public DbReceipeType(int Id, string name)
         {
-            this._id = _id;
             ReciepeID = Id;
             Name = name;
            

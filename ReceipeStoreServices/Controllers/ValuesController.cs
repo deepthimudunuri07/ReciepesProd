@@ -64,24 +64,9 @@ namespace ReceipeStoreServices.Controllers
             List<Receipe> responseList = new List<Receipe>();
             AvaliableList.ForEach(x => responseList.Add(new Receipe(x.ReciepeID,x.Name, x.Ingredients, x.Instructions, x.CookingTime, x.PreparationTime, x.IsHealthy, x.IsDiabetic, x.ReciepeType, x.CuisineType,x.ImageUrl)));
             HttpResponseMessage returnResponse = Request.CreateResponse(HttpStatusCode.OK, responseList);
-
-
+        
             return returnResponse;
-            //ReadInput input = new ReadInput();
-
-            //List<Receipe> reclist = new List<Receipe>();
-            //reclist =
-            //    input.ReadfromInput(@"C:\Users\mudunuride01\Documents\GitHub\ReceipesProd\ReciepesProd\InputFile.xlsx");
-            //if (reclist == null)
-            //{
-            //    throw new HttpResponseException(HttpStatusCode.NotFound);
-            //}
-
-            // var reclist1 = from receipe in reclist where receipe.ReceipeTypeID == selected select receipe;
-
-           //return Request.CreateResponse(HttpStatusCode.OK, reclist1);
-
-
+            
         }
 
         private int GetReciepeType()

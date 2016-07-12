@@ -9,16 +9,15 @@
             </a>
             <br>
             <select ng-model="Reciepe.ReceipeTypeID" ng-options="item.Name for item in ReciepeCategory">{{item.Name}}</select>
-            @*<ul id="menu" class="dropdown-menu" ng-model="myvar">
-                <li ng-repeat="p in ReciepeCategory" ng-model="Reciepe.ReciepeTypeID">
-                    <a href="#" class="">{{p.Name}}</a>
-                </li>
-                <li><a href="#" class="">Add a New Type</a></li>
-            </ul>*@
+            <input type="button" name="RecTypeAdd"  value="Add a new Reciepe Type" ng-click="AddRecType()"/>
+            <br>
+            Ingredients:
+            <br>
+            <input name="ingredients" rows="5" ng-model="Reciepe.Ingredients" ng-list required /><br />
             <br>
             Instructions:
             <br>
-            <textarea name="instructions" rows="5" ng-model="Reciepe.Instructions"></textarea><br />
+            <input name="instructions" rows="5" ng-model="Reciepe.Instructions" ng-list required/><br />
             <br>
             Cooking Time:
             <br>
@@ -42,20 +41,24 @@
             
             <br>
             Image:
-            @*<br><input id="imageid" type="file" ng-model="Reciepe.ImageUrl"/>
-            <br>*@
+            <br><input id="imageid" type="file" ng-model="Reciepe.ImageUrl"/>
+            @*<button ng-click="add()">Add</button>*@
+            <br>
             <button type="submit">Submit</button>
         </div>
 
-        <div ng-model ="displaymessage">
+        <div ng-hide ="displaymessage">
             <label ng-model="returnStatus">{{returnStatus}}</label>
         </div>
 
 
-        <div ng-if="myvar =='1'">
-            <div>
-                <h1>Add a new Type</h1>
+
+        <div >
+            <div ng-hide="IsRecTypeHidden">
+                Add a new  Reciepe Type
                 <input type="text" ng-model="Newtype"><br>
+                <input type="button" value="Add ReciepeType " ng-click="addnewtype()" />
+
             </div>
 
         </div>

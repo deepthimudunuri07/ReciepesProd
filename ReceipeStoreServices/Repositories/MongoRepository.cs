@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data.Metadata.Edm;
 using System.Linq;
@@ -31,16 +32,7 @@ namespace ReceipeStoreServices
             _Database = _client.GetDatabase("ReciepeHub");
         }
        
-        //public List<DbReceipeType> RetrieveCollection()
-        //{
-        //    OpenConnection();
-        //    var filter = new BsonDocument();
-        //    var collection = _Database.GetCollection<DbReceipeType>("ReciepeType");
-        //    var results =  collection.Find(filter).ToList();
-        //   return results;
-        
-        //}
-
+       
         public List<T> RetrieveCollection<T>(string collectionName, FilterDefinition<T> filters)
         {
             OpenConnection();
@@ -49,14 +41,24 @@ namespace ReceipeStoreServices
             return results;
         }
 
-        public DbReceipe RetrieveLastInserted()
+        //public DbReceipe RetrieveLastInserted()
+        //{
+        //    var collection = _Database.GetCollection<DbReceipe>("Reciepe");
+        //    var builder = Builders<DbReceipe>.Sort;
+        //    var sort = builder.Descending("ReciepeID");
+        //    var result = collection.Find(new BsonDocumentFilterDefinition<DbReceipe>(new BsonDocument()));
+        //  List<DbReceipe> rec =  result.Sort(sort).Limit(1).ToList();
+        //    return rec.Find(x=> x.ReciepeID!= null);
+        //}
+
+        public T RetrieveLastInserted<T>(string collectionName, string sortID)
         {
-            var collection = _Database.GetCollection<DbReceipe>("Reciepe");
-            var builder = Builders<DbReceipe>.Sort;
-            var sort = builder.Descending("ReciepeID");
-            var result = collection.Find(new BsonDocumentFilterDefinition<DbReceipe>(new BsonDocument()));
-          List<DbReceipe> rec =  result.Sort(sort).Limit(1).ToList();
-            return rec.Find(x=> x.ReciepeID!= null);
+            var collection = _Database.GetCollection<T>(collectionName);
+            var builder = Builders<T>.Sort;
+            var sort = builder.Descending(sortID);
+            var result = collection.Find(new BsonDocumentFilterDefinition<T>(new BsonDocument()));
+            List<T> rec = result.Sort(sort).Limit(1).ToList();
+            return rec.FirstOrDefault();
         }
 
         public void InsertCollection<T>(string collectionName, T document)

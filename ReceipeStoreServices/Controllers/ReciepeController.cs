@@ -46,7 +46,7 @@ namespace ReceipeStoreServices.Controllers
             using (MongoRepository _repository = new MongoRepository())
             {
 
-             DbReceipe result =_repository.RetrieveLastInserted();
+                DbReceipe result =_repository.RetrieveLastInserted<DbReceipe>("Reciepe","ReciepeID");
                 DbReceipe document = new DbReceipe((result.ReciepeID + 1),value.ReceipeTypeID,value.Name,value.Ingredients,value.Instructions,value.CookingTime,value.PreparationTime,value.IsHealthy,value.IsDiabetic,false,value.ImageUrl);
                 
                 _repository.InsertCollection<DbReceipe>("Reciepe", document);

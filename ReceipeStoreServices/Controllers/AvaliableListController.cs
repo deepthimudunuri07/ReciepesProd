@@ -44,10 +44,18 @@ namespace ReceipeStoreServices.Controllers
         //    return "value";
         //}
 
-        //// POST: api/AvaliableList
-        //public void Post([FromBody]string value)
-        //{
-        //}
+        // POST: api/AvaliableList
+        public void Post([FromBody] string value)
+        {
+            using (MongoRepository _repository = new MongoRepository())
+            {
+
+                DbReceipeType result = _repository.RetrieveLastInserted<DbReceipeType>("ReciepeType", "ReciepeID");
+                DbReceipeType document = new DbReceipeType((result.ReciepeID + 1), value);
+
+                _repository.InsertCollection<DbReceipeType>("ReciepeType", document);
+            }
+        }
 
         //// PUT: api/AvaliableList/5
         //public void Put(int id, [FromBody]string value)
